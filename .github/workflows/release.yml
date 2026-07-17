@@ -31,7 +31,8 @@ jobs:
       - name: Publish to npm with provenance when version is new
         shell: bash
         run: |
-          if npm view "$npm_package_name@$npm_package_version" version >/dev/null 2>&1; then
+          package_url="https://registry.npmjs.org/${npm_package_name}/${npm_package_version}"
+          if curl --fail --silent --show-error "$package_url" >/dev/null; then
             echo "$npm_package_name@$npm_package_version is already published; skipping npm publish."
           else
             npm publish --access public --provenance
