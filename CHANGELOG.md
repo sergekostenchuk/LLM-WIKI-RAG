@@ -2,6 +2,11 @@
 
 All notable changes follow semantic versioning.
 
+## 1.0.2 — 2026-07-17
+
+- Fixed Windows stale-lock recovery for missing process IDs reported as `WinError 87`.
+- Added a cross-platform regression test and detailed failed-suite output in CI.
+
 ## 1.0.1 — 2026-07-17
 
 - Fixed snapshot count consistency after rollback.

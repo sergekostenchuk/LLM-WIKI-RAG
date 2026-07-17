@@ -1,6 +1,6 @@
 {
   "name": "llm-wiki-rag",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Production-ready hybrid knowledge base combining a governed Markdown Wiki with deterministic local RAG.",
   "keywords": [
     "llm",
@@ -33,6 +33,9 @@
   "files": [
     "bin/",
     "source/llm-wiki-rag-orchestrator/",
+    "!source/**/__pycache__/**",
+    "!source/**/*.pyc",
+    "!source/**/*.pyo",
     "docs/",
     "README.md",
     "README.ru.md",

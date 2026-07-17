@@ -30,12 +30,23 @@ class ProjectLock:
         self.acquired = False
 
     @staticmethod
+    def _pid_error_indicates_missing(error: OSError) -> bool:
+        return isinstance(error, ProcessLookupError) or getattr(error, "winerror", None) == 87
+
+    @staticmethod
     def _pid_alive(pid: int) -> bool:
         try:
             os.kill(pid, 0)
         except ProcessLookupError:
             return False
         except PermissionError:
+            return True
+        except OSError as exc:
+            # Windows reports ERROR_INVALID_PARAMETER (87), rather than
+            # ProcessLookupError, when the PID does not exist.
+            if ProjectLock._pid_error_indicates_missing(exc):
+                return False
+            # Unknown platform errors must not cause an unsafe lock takeover.
             return True
         return True
 

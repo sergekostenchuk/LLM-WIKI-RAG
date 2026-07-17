@@ -22,7 +22,7 @@ function run(args, expected = 0) {
 
 const version = spawnSync(process.execPath, [cli, "--version"], { encoding: "utf8" });
 assert.equal(version.status, 0);
-assert.match(version.stdout, /^1\.0\.1\s*$/);
+assert.match(version.stdout, /^1\.0\.2\s*$/);
 
 run(["init", "--project", project]);
 fs.writeFileSync(

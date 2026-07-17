@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2 — 2026-07-17
+
+- Fixed stale-lock recovery on Windows, where a missing PID is reported as `WinError 87` rather than `ProcessLookupError`.
+- Added an explicit Windows PID regression test and actionable CI failure diagnostics.
+
 ## 1.0.1 — 2026-07-17
 
 - Fixed `status.counts.snapshots` after rollback by inventorying snapshot manifests on disk, matching the dedicated `snapshots` command.

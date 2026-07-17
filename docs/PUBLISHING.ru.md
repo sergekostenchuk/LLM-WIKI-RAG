@@ -32,14 +32,14 @@ npm publish --access public --provenance
 
 ```bash
 npm view llm-wiki-rag version dist.integrity repository license
-npx llm-wiki-rag@1.0.1 --version
+npx llm-wiki-rag@1.0.2 --version
 ```
 
 ## GitHub Release
 
 ```bash
-git tag -a v1.0.1 -m "LLM-WIKI-RAG 1.0.1"
-git push origin v1.0.1
+git tag -a v1.0.2 -m "LLM-WIKI-RAG 1.0.2"
+git push origin v1.0.2
 ```
 
 Workflow повторяет проверки, публикует npm, собирает `.skill` и создаёт GitHub Release. Tag отправляется только после настройки trusted publishing и environment `npm`.

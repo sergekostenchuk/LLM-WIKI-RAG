@@ -57,6 +57,11 @@ class RuntimeTests(unittest.TestCase):
                 self.assertTrue(lock.exists())
             self.assertFalse(lock.exists())
 
+    def test_windows_invalid_pid_is_not_alive(self) -> None:
+        error = OSError(22, "The parameter is incorrect")
+        error.winerror = 87  # type: ignore[attr-defined]
+        self.assertTrue(ProjectLock._pid_error_indicates_missing(error))
+
 
 if __name__ == "__main__":
     unittest.main()

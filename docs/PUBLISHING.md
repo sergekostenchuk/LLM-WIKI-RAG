@@ -32,14 +32,14 @@ Verify from a clean directory:
 
 ```bash
 npm view llm-wiki-rag version dist.integrity repository license
-npx llm-wiki-rag@1.0.1 --version
+npx llm-wiki-rag@1.0.2 --version
 ```
 
 ## GitHub release
 
 ```bash
-git tag -a v1.0.1 -m "LLM-WIKI-RAG 1.0.1"
-git push origin v1.0.1
+git tag -a v1.0.2 -m "LLM-WIKI-RAG 1.0.2"
+git push origin v1.0.2
 ```
 
 The workflow verifies, publishes to npm, builds `.skill`, and creates the GitHub release. Push a tag only after trusted publishing and the `npm` environment are configured.

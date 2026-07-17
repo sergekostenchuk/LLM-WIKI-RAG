@@ -32,7 +32,7 @@ from production_runtime import (
     update_metrics,
 )
 
-VERSION = "1.0.1"
+VERSION = "1.0.2"
 SCHEMA_VERSION = str(LATEST_SCHEMA_VERSION)
 SUPPORTED_EXTENSIONS = {".md", ".markdown", ".txt", ".pdf"}
 DEFAULT_CONFIG = {
@@ -1434,7 +1434,7 @@ def cmd_status(project: Path) -> tuple[dict[str, Any], int]:
 
 
 def parser() -> argparse.ArgumentParser:
-    value = argparse.ArgumentParser(description="LLM-WIKI-RAG Production 1.0.1")
+    value = argparse.ArgumentParser(description="LLM-WIKI-RAG Production 1.0.2")
     sub = value.add_subparsers(dest="command", required=True)
     for name in ("init", "update", "status", "audit", "rebuild", "snapshots", "conflicts", "migrate"):
         command = sub.add_parser(name)
