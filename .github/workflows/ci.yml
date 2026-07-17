@@ -45,7 +45,7 @@ jobs:
       - run: npm ci
       - run: npm pack
       - run: npm run build:skill
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: release-candidates
           path: |
