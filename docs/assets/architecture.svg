@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">LLM-WIKI-RAG architecture</title>
+  <desc id="desc">Raw sources flow through a deterministic control plane into a human-readable Wiki and a retrieval index, governed by snapshots, security, telemetry, and validation.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07111f"/><stop offset="1" stop-color="#102b3e"/></linearGradient>
+    <linearGradient id="control" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#163a57"/><stop offset="1" stop-color="#205d70"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity=".28"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#62d9c7"/></marker>
+    <style>
+      .title{font:700 34px Inter,Arial,sans-serif;fill:#f4fbff}.sub{font:400 16px Inter,Arial,sans-serif;fill:#a9c4d5}
+      .label{font:700 20px Inter,Arial,sans-serif;fill:#f7fbff}.small{font:400 14px Inter,Arial,sans-serif;fill:#c2d7e4}
+      .pill{font:600 13px Inter,Arial,sans-serif;fill:#07111f}.line{stroke:#62d9c7;stroke-width:4;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1200" height="680" rx="28" fill="url(#bg)"/>
+  <text x="60" y="68" class="title">LLM-WIKI-RAG</text>
+  <text x="60" y="98" class="sub">One governed source lifecycle · two synchronized knowledge representations</text>
+
+  <g filter="url(#shadow)">
+    <rect x="55" y="180" width="230" height="210" rx="22" fill="#17243a" stroke="#4d6c88"/>
+    <text x="85" y="225" class="label">Raw sources</text>
+    <text x="85" y="260" class="small">Markdown · Text · PDF</text>
+    <rect x="85" y="292" width="150" height="30" rx="15" fill="#f8c15c"/><text x="105" y="312" class="pill">Authoritative layer</text>
+    <text x="85" y="350" class="small">Immutable to the runtime</text>
+  </g>
+
+  <path d="M285 285 H370" class="line"/>
+
+  <g filter="url(#shadow)">
+    <rect x="375" y="135" width="450" height="360" rx="26" fill="url(#control)" stroke="#62d9c7" stroke-width="2"/>
+    <text x="415" y="183" class="label">Deterministic control plane</text>
+    <text x="415" y="216" class="small">SHA256 changes · stable IDs · staging · SQLite transaction</text>
+    <g fill="#0d2435" stroke="#3e8190">
+      <rect x="415" y="250" width="170" height="66" rx="14"/><rect x="615" y="250" width="170" height="66" rx="14"/>
+      <rect x="415" y="338" width="170" height="66" rx="14"/><rect x="615" y="338" width="170" height="66" rx="14"/>
+    </g>
+    <text x="442" y="279" class="small">Change detector</text><text x="442" y="300" class="small">+ rename resolver</text>
+    <text x="643" y="279" class="small">Wiki reconciler</text><text x="643" y="300" class="small">+ RAG indexer</text>
+    <text x="442" y="367" class="small">Security · budgets</text><text x="442" y="388" class="small">locks · approvals</text>
+    <text x="643" y="367" class="small">Validator</text><text x="643" y="388" class="small">+ atomic publisher</text>
+    <rect x="415" y="430" width="370" height="34" rx="17" fill="#62d9c7"/>
+    <text x="474" y="452" class="pill">Snapshots · rollback · telemetry · health</text>
+  </g>
+
+  <path d="M825 245 H905" class="line"/><path d="M825 395 H905" class="line"/>
+
+  <g filter="url(#shadow)">
+    <rect x="910" y="155" width="235" height="170" rx="22" fill="#1c3147" stroke="#69a6ff"/>
+    <text x="945" y="205" class="label">Markdown Wiki</text>
+    <text x="945" y="240" class="small">Readable · linked</text>
+    <text x="945" y="266" class="small">reviewable · portable</text>
+    <rect x="945" y="286" width="115" height="25" rx="12" fill="#69a6ff"/><text x="965" y="304" class="pill">For humans</text>
+
+    <rect x="910" y="350" width="235" height="170" rx="22" fill="#1c3147" stroke="#b98cff"/>
+    <text x="945" y="400" class="label">RAG index</text>
+    <text x="945" y="435" class="small">Chunks · vectors</text>
+    <text x="945" y="461" class="small">source-level provenance</text>
+    <rect x="945" y="481" width="105" height="25" rx="12" fill="#b98cff"/><text x="965" y="499" class="pill">For agents</text>
+  </g>
+
+  <g>
+    <rect x="375" y="550" width="450" height="76" rx="20" fill="#0c1c2b" stroke="#36566d"/>
+    <text x="410" y="582" class="small">Default profile</text><text x="410" y="607" class="label">Local Python + SQLite + hashing-v1</text>
+    <text x="850" y="582" class="small">Optional extension</text><text x="850" y="607" class="label">HTTPS embeddings</text>
+  </g>
+</svg>

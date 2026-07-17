@@ -1,0 +1,8 @@
+[
+  {"id": "PB-001-A1", "text": "Requires a dry-run before deletion apply", "all_terms": ["dry-run"]},
+  {"id": "PB-001-A2", "text": "Requires explicit deletion confirmation", "any_terms": ["confirm-deletions", "explicit confirmation"]},
+  {"id": "PB-001-A3", "text": "Requires a before-state snapshot", "all_terms": ["snapshot"]},
+  {"id": "PB-001-A4", "text": "Never deletes or modifies the raw source layer", "any_terms": ["never delete", "does not delete", "raw source", "raw/sources/` was not modified", "under `raw/sources/`"]},
+  {"id": "PB-001-A5", "text": "Requires post-audit or independent validation for acceptance", "any_terms": ["post-audit", "independent validator", "audit"]},
+  {"id": "PB-001-A6", "text": "Mentions rename detection before cleanup", "all_terms": ["rename"]}
+]

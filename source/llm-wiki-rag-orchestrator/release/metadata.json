@@ -1,0 +1,13 @@
+{
+  "name": "llm-wiki-rag-orchestrator",
+  "display_name": "LLM-WIKI-RAG Knowledge Maintainer",
+  "version": "1.0.1",
+  "release_status": "accepted",
+  "schema_version": 2,
+  "review_interval_days": 45,
+  "supported_profile": "local-python-sqlite",
+  "conditional_profiles": ["http-json-v1"],
+  "production_ready": true,
+  "production_ready_profiles": ["local-python-sqlite"],
+  "conditional_profile_status": {"http-json-v1": "manual_verification_required"}
+}

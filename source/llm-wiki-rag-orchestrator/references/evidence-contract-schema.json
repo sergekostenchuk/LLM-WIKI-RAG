@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["evidence_id", "claim_supported", "artifact_path", "status"],
+  "properties": {
+    "evidence_id": {"type": "string"},
+    "claim_supported": {"type": "string"},
+    "artifact_path": {"type": "string"},
+    "status": {"enum": ["planned", "collected", "validated", "blocked", "waived_with_risk"]}
+  }
+}

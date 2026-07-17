@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/llm-wiki-rag/validation-report.schema.json",
+  "title": "LLM-WIKI-RAG ValidationReport",
+  "type": "object",
+  "required": ["schema_version", "run_id", "command", "status", "passed", "counts", "errors", "warnings"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "run_id": {"type": "string"},
+    "command": {"const": "audit"},
+    "status": {"enum": ["accepted", "rejected"]},
+    "passed": {"type": "boolean"},
+    "counts": {"type": "object"},
+    "errors": {"type": "array"},
+    "warnings": {"type": "array"}
+  },
+  "additionalProperties": true
+}

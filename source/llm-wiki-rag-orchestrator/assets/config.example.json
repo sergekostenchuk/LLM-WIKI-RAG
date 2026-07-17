@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "source_extensions": [".md", ".markdown", ".txt", ".pdf"],
+  "max_file_bytes": 10485760,
+  "chunk_chars": 1200,
+  "chunk_overlap_chars": 150,
+  "vector_provider": "hashing-v1",
+  "vector_dimensions": 128,
+  "deletion_policy": "confirm_and_snapshot",
+  "snapshot_retention": 20,
+  "http_embedding": {
+    "endpoint": "",
+    "model": "",
+    "token_env": "",
+    "timeout_seconds": 30
+  },
+  "budgets": {
+    "max_sources_per_run": 1000,
+    "max_total_source_bytes_per_run": 104857600,
+    "max_chunks_per_run": 10000,
+    "max_external_embedding_calls_per_run": 1000
+  },
+  "security": {
+    "secret_mode": "block",
+    "pii_mode": "review",
+    "approved_fingerprints": []
+  },
+  "operations": {
+    "lock_stale_after_seconds": 3600,
+    "watch_interval_seconds": 30
+  }
+}

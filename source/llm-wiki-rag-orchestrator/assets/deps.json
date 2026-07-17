@@ -1,0 +1,9 @@
+{
+  "dependencies": [
+    {"name": "python3", "category": "cli", "command": "python3", "required": true, "minimum_version": "3.11", "used_for": "MVP CLI"},
+    {"name": "sqlite3", "category": "python", "module": "sqlite3", "required": true, "used_for": "source and chunk state"},
+    {"name": "pdftotext", "category": "cli", "command": "pdftotext", "required": false, "used_for": "PDF extraction", "required_for": ["pdf"]},
+    {"name": "urllib", "category": "python", "module": "urllib.request", "required": true, "used_for": "opt-in HTTPS embedding adapter"},
+    {"name": "https-embedding-endpoint", "category": "api", "required": false, "used_for": "semantic embeddings when http-json-v1 is selected"}
+  ]
+}

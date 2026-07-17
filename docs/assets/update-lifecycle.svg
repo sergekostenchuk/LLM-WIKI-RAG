@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" role="img" aria-labelledby="title desc">
+  <title id="title">Safe incremental update lifecycle</title>
+  <desc id="desc">An update moves from scan and dry-run through lock, snapshot, staging, validation, atomic publication, and telemetry, with blocked deletion requiring explicit confirmation.</desc>
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#081521"/><stop offset="1" stop-color="#172b3c"/></linearGradient>
+    <marker id="a2" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0 0v6l9-3z" fill="#63d8c7"/></marker>
+    <style>.t{font:700 30px Inter,Arial,sans-serif;fill:#f4fbff}.n{font:700 15px Inter,Arial,sans-serif;fill:#f7fbff}.s{font:400 13px Inter,Arial,sans-serif;fill:#b9cfdd}.l{stroke:#63d8c7;stroke-width:3;fill:none;marker-end:url(#a2)}</style>
+  </defs>
+  <rect width="1200" height="440" rx="28" fill="url(#bg2)"/>
+  <text x="55" y="62" class="t">Safe incremental update</text>
+  <text x="55" y="92" class="s">Dry-run first · explicit mutation · recoverable publication</text>
+  <g fill="#17344a" stroke="#3c7185" stroke-width="1.5">
+    <rect x="55" y="150" width="120" height="90" rx="18"/><rect x="195" y="150" width="120" height="90" rx="18"/>
+    <rect x="335" y="150" width="120" height="90" rx="18"/><rect x="475" y="150" width="120" height="90" rx="18"/>
+    <rect x="615" y="150" width="120" height="90" rx="18"/><rect x="755" y="150" width="120" height="90" rx="18"/>
+    <rect x="895" y="150" width="120" height="90" rx="18"/><rect x="1035" y="150" width="120" height="90" rx="18"/>
+  </g>
+  <g class="n" text-anchor="middle">
+    <text x="115" y="185">1 · Scan</text><text x="255" y="185">2 · Preview</text><text x="395" y="185">3 · Lock</text><text x="535" y="185">4 · Snapshot</text>
+    <text x="675" y="185">5 · Stage</text><text x="815" y="185">6 · Validate</text><text x="955" y="185">7 · Publish</text><text x="1095" y="185">8 · Observe</text>
+  </g>
+  <g class="s" text-anchor="middle">
+    <text x="115" y="212">SHA256</text><text x="255" y="212">no writes</text><text x="395" y="212">exclusive</text><text x="535" y="212">pre-change</text>
+    <text x="675" y="212">Wiki + RAG</text><text x="815" y="212">gates</text><text x="955" y="212">atomic</text><text x="1095" y="212">reports</text>
+  </g>
+  <g class="l"><path d="M175 195h17"/><path d="M315 195h17"/><path d="M455 195h17"/><path d="M595 195h17"/><path d="M735 195h17"/><path d="M875 195h17"/><path d="M1015 195h17"/></g>
+  <path d="M255 240v70h420v-67" fill="none" stroke="#f1b85b" stroke-width="3" stroke-dasharray="7 6" marker-end="url(#a2)"/>
+  <rect x="190" y="312" width="555" height="72" rx="18" fill="#34291b" stroke="#f1b85b"/>
+  <text x="220" y="342" class="n">Deletion branch</text>
+  <text x="220" y="367" class="s">Missing source → preview scope → require --apply --confirm → snapshot → derived cleanup</text>
+  <rect x="800" y="300" width="355" height="84" rx="18" fill="#122536" stroke="#b98cff"/>
+  <text x="830" y="332" class="n">Failure path</text>
+  <text x="830" y="358" class="s">Validation fails → do not publish → retain evidence</text>
+</svg>

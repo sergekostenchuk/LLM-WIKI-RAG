@@ -1,0 +1,42 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: npm
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: https://registry.npmjs.org
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: npm ci
+      - run: npm test
+      - name: Verify tag matches package version
+        shell: bash
+        run: node -e "const p=require('./package.json'); if ('v'+p.version !== process.env.GITHUB_REF_NAME) process.exit(1)"
+      - run: npm pack
+      - run: npm run build:skill
+      - name: Publish to npm with provenance when version is new
+        shell: bash
+        run: |
+          if npm view "$npm_package_name@$npm_package_version" version >/dev/null 2>&1; then
+            echo "$npm_package_name@$npm_package_version is already published; skipping npm publish."
+          else
+            npm publish --access public --provenance
+          fi
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" *.tgz dist/*.skill --generate-notes --verify-tag

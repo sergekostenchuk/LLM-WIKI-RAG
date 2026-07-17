@@ -1,0 +1,1 @@
+The hybrid system keeps immutable source documents separate from generated Wiki pages.

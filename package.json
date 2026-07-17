@@ -1,0 +1,61 @@
+{
+  "name": "llm-wiki-rag",
+  "version": "1.0.1",
+  "description": "Production-ready hybrid knowledge base combining a governed Markdown Wiki with deterministic local RAG.",
+  "keywords": [
+    "llm",
+    "wiki",
+    "rag",
+    "knowledge-base",
+    "retrieval-augmented-generation",
+    "ai-agents",
+    "sqlite",
+    "markdown",
+    "codex-skill"
+  ],
+  "homepage": "https://github.com/sergekostenchuk/LLM-WIKI-RAG#readme",
+  "bugs": {
+    "url": "https://github.com/sergekostenchuk/LLM-WIKI-RAG/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergekostenchuk/LLM-WIKI-RAG.git"
+  },
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Sergey Kostenchuk",
+    "url": "https://github.com/sergekostenchuk"
+  },
+  "type": "commonjs",
+  "bin": {
+    "llm-wiki-rag": "bin/llm-wiki-rag.js"
+  },
+  "files": [
+    "bin/",
+    "source/llm-wiki-rag-orchestrator/",
+    "docs/",
+    "README.md",
+    "README.ru.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "NOTICE",
+    "SECURITY.md"
+  ],
+  "engines": {
+    "node": ">=18",
+    "npm": ">=9"
+  },
+  "scripts": {
+    "build:skill": "python3 scripts/build_skill_package.py",
+    "test": "node tests/npm-cli-smoke.cjs && node scripts/run-python-checks.cjs",
+    "test:npm-cli": "node tests/npm-cli-smoke.cjs",
+    "test:python": "node scripts/run-python-checks.cjs",
+    "prepack": "node scripts/verify-publish-files.cjs",
+    "pack:dry-run": "npm pack --dry-run",
+    "release:check": "npm test && npm pack --dry-run"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

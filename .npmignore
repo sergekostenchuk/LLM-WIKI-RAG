@@ -1,0 +1,11 @@
+.github/
+.git/
+.DS_Store
+CONCEPT/
+workbench/
+tests/
+scripts/
+dist/
+*.tgz
+__pycache__/
+*.py[cod]

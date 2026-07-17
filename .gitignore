@@ -1,0 +1,14 @@
+.DS_Store
+node_modules/
+*.tgz
+dist/*.skill
+workbench/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/

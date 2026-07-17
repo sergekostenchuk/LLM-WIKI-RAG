@@ -1,0 +1,1 @@
+Design a production operating sequence for an LLM-WIKI-RAG project that receives new documents on a schedule. Explain the watcher/cron setup, concurrency, budgets, sensitive-data handling, health checks, rollback, and which decisions remain human-owned. Do not install or run anything.

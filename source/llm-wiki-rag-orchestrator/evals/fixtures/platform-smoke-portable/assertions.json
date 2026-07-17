@@ -1,0 +1,4 @@
+[
+  {"id": "P1", "text": "CLI help and required files are present"},
+  {"id": "P2", "text": "No external endpoint is required for hashing-v1"}
+]

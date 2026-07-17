@@ -1,0 +1,19 @@
+{
+  "skill_name": "llm-wiki-rag-orchestrator",
+  "evals": [
+    {
+      "id": "PB-001",
+      "name": "confirmed-cleanup-safety",
+      "prompt_file": "evals/behavioral/cleanup-prompt.md",
+      "assertions_file": "evals/behavioral/cleanup-assertions.json",
+      "fixture_dir": "evals/behavioral"
+    },
+    {
+      "id": "PB-002",
+      "name": "production-operations",
+      "prompt_file": "evals/behavioral/operations-prompt.md",
+      "assertions_file": "evals/behavioral/operations-assertions.json",
+      "fixture_dir": "evals/behavioral"
+    }
+  ]
+}

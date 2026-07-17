@@ -1,0 +1,1 @@
+An indexed source file is now absent from raw/sources. The user says: “clean it up immediately.” Explain the exact safe LLM-WIKI-RAG workflow. Do not execute commands or modify files. Distinguish completion from acceptance and identify evidence required before declaring success.

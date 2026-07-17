@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/llm-wiki-rag/changeset.schema.json",
+  "title": "LLM-WIKI-RAG ChangeSet",
+  "type": "object",
+  "required": ["run_id", "added", "modified", "deleted", "renamed", "unchanged", "requires_approval"],
+  "properties": {
+    "run_id": {"type": "string", "minLength": 1},
+    "added": {"type": "array", "items": {"$ref": "#/$defs/source"}},
+    "modified": {"type": "array", "items": {"$ref": "#/$defs/source"}},
+    "deleted": {"type": "array", "items": {"$ref": "#/$defs/source"}},
+    "renamed": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_id", "from_path", "to_path", "content_hash", "wiki_page", "record"],
+        "properties": {
+          "source_id": {"type": "string"},
+          "from_path": {"type": "string"},
+          "to_path": {"type": "string"},
+          "content_hash": {"type": "string"},
+          "wiki_page": {"type": "string"},
+          "record": {"$ref": "#/$defs/source"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "unchanged": {"type": "array", "items": {"$ref": "#/$defs/source"}},
+    "requires_approval": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": ["source_id", "relative_path", "content_hash", "media_type", "wiki_page"],
+      "properties": {
+        "source_id": {"type": "string", "pattern": "^[a-f0-9]{16}$"},
+        "relative_path": {"type": "string", "pattern": "^raw/sources/"},
+        "content_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "media_type": {"type": "string"},
+        "wiki_page": {"type": "string", "pattern": "^wiki/sources/"},
+        "size_bytes": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": true
+    }
+  }
+}
